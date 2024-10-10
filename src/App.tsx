@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import GameBoard from './components/GameBoard'
+import ResetButton from './components/ResetButton'
 
   function App() {
     return (
@@ -13,7 +14,9 @@ import GameBoard from './components/GameBoard'
         <div className="container">
         <GameBoard />
         </div>
-        
+        <div>
+        <ResetButton/>
+        </div>
       </div>
     );
 }
