@@ -28,6 +28,35 @@ function GameBoard() {
     console.log('reset is running')
   }
 
+  const checkForWinningCombination = (squares: any) => {
+    const winningCombinations = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+      ]
+
+      for(let i = 0; i < winningCombinations.length; i++) {
+        // first, second, third element in each array in the winningcombination array, i starts at 0. 
+         const [first, second, third] = winningCombinations[i]
+
+         if (squares[first] === "X" && squares[second] === "X" && squares[third] === "X") {
+          return "X"
+         }
+
+         if (squares[first] === "O" && squares[second] === "O" && squares[third] === "O") {
+          return "O"
+         }
+      }
+
+    }
+    checkForWinningCombination(squares)
+    console.log(checkForWinningCombination(squares))
+  
     return (
       <>
         <div className="game-board-row">
