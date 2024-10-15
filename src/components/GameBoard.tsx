@@ -43,13 +43,15 @@ function GameBoard() {
       for(let i = 0; i < winningCombinations.length; i++) {
         // first, second, third element in each array in the winningcombination array, i starts at 0. 
          const [first, second, third] = winningCombinations[i]
+         const winnerX = "X"
+         const winnerO = "O"
 
          if (squares[first] === "X" && squares[second] === "X" && squares[third] === "X") {
-          return "X"
+          return winnerX
          }
 
          if (squares[first] === "O" && squares[second] === "O" && squares[third] === "O") {
-          return "O"
+          return winnerO
          }
       }
 
@@ -76,6 +78,9 @@ function GameBoard() {
         </div>
         <div>
         <ResetButton onClick={() => resetToEmptyBoard()}/>
+        </div>
+        <div className="message-box">
+          <Message message={"The winner is ..."}/>
         </div>
       </>
     );
