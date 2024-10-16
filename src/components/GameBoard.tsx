@@ -6,6 +6,7 @@ import Message from './Message'
 function GameBoard() {
   const [squares, setSquares] = useState(Array(9).fill(""))
   const [isNext, setIsNext] = useState(true)
+  //const [go, setGo] = useState("X")
 //  const [isTie, setIsTie] = useState(false)
   const [isWin, setIsWin] = useState(false)
 
@@ -17,16 +18,16 @@ function GameBoard() {
   const handleNextTurn = (index: number) => {
     // if there is not a winner (!isWin), run the rest of the code in the function (and one can continue clicking on the squares)
     if (!isWin) {
-    if (!squares[index]) {
-      //Visa antingen X eller O beroende på vems tur det är
-      //Om isXNext är true, visas "X", annars "O"
-      newSquares[index] = isNext ? "X" : "O"
-      console.log(newSquares)
-      //uppdatera state
-      setSquares(newSquares)
-      //växla tur
-      ////När man klickar en ruta sätts "X" eller "O" beroende på värdet av isXNext. Efter att en ruta har klickats växlar turen genom att uppdatera isXNext med !isXNext
-      setIsNext(!isNext)
+      if (!squares[index]) {
+        //Visa antingen X eller O beroende på vems tur det är
+        //Om isXNext är true, visas "X", annars "O"
+        newSquares[index] = isNext ? "X" : "O"
+        console.log(newSquares)
+        //uppdatera state
+        setSquares(newSquares)
+        //växla tur
+        ////När man klickar en ruta sätts "X" eller "O" beroende på värdet av isXNext. Efter att en ruta har klickats växlar turen genom att uppdatera isXNext med !isXNext
+        setIsNext(!isNext)
       }
     }
   }
@@ -59,11 +60,6 @@ function GameBoard() {
       return winningPlayer
     }
 
-  const resetToEmptyBoard = () => {
-    setSquares(Array(9).fill(""))
-    console.log('reset is running')
-  }
-
     // Lagra resultatet av checkForWinningCombination i variabeln "winner"
     const winner = checkForWinningCombination(squares)
     console.log("The winner is: " + winner)
@@ -85,7 +81,12 @@ function GameBoard() {
       }
       return false
     } 
-  
+
+    const resetToEmptyBoard = () => {
+      setSquares(Array(9).fill(""))
+      console.log('reset is running')
+    } 
+
     return (
       <>
         <div className="game-board-row">

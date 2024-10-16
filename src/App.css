@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .App-header {
@@ -8,50 +9,49 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
   font-size: calc(10px + 2vmin);
   color: rgb(80, 109, 136);
 }
 
 .container {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
- /* justify-content: center;*/
+  justify-content: center;
 }
 
-.game-board-row {
-/*color: rgb(rgb(237, 236, 240));*/
- /* margin: 0px; */
- /* width: 300px;
-	height: 300px; */
-/*	margin: 0 auto; */
- /* border: 6px solid rgb(255, 255, 255); */
+.game-board-row { 
+	margin: 0 auto; 
   border-radius: 10px;
   display: flex;
 }
 
 .square {
-color: rgb(60, 81, 100);
-background-color: rgb(255, 255, 255);
-border: 6px solid rgb(240, 240, 244) ;
-/*border-color: rgb(208, 208, 216);*/
-border-radius: 2px;
-height: 150px;
-width: 150px;
-font-weight: bold;
-font-size: 2.5em;
-display: flex;
-justify-content: center;
-align-items: center;
-font-weight: 900;
+  color: rgb(60, 81, 100);
+  background-color: rgb(255, 255, 255);
+  border: 6px solid rgb(240, 240, 244) ;
+  border-radius: 8px;
+  height: 150px;
+  width: 150px; 
+  font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+}
+
+@media (max-width: 550px) {
+  .square {
+    width: 110px;
+    height: 110px;
+  }
 }
 
 .resetButton {
   color: rgb(255, 255, 255);
   background-color: rgb(80, 109, 136);
   margin: 50px;
- /* font-size: 28px; */
   font-size: calc(10px + 2vmin);
   padding: 18px;
   border-radius: 42px;
@@ -60,7 +60,6 @@ font-weight: 900;
   cursor: pointer;
   line-height: 16px;
   background-image: linear-gradient(rgba(132, 152, 201, 0.84), rgba(80, 109, 136, 0.84) 50%);
-  border-width: 0;
   box-shadow: rgba(80, 109, 136, 0.24) 0 2px 2px,rgba(132, 152, 201, 0.4) 0 8px 12px;
 }
 
