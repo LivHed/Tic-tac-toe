@@ -7,12 +7,16 @@ function GameBoard() {
   const [squares, setSquares] = useState(Array(9).fill(""))
   const [isNext, setIsNext] = useState(true)
 //  const [isTie, setIsTie] = useState(false)
-//  const [isWin, setIsWin] = useState(false)
+  const [isWin, setIsWin] = useState(false)
+
+ // const nextTurnMessage = "It's now " + go + "'s turn!"
 
   //kopierar arrayn, 
   const newSquares = squares.slice()
 
   const handleNextTurn = (index: number) => {
+    // if there is not a winner (!isWin), run the rest of the code in the function (and one can continue clicking on the squares)
+    if (!isWin) {
     if (!squares[index]) {
       //Visa antingen X eller O beroende på vems tur det är
       //Om isXNext är true, visas "X", annars "O"
@@ -23,6 +27,7 @@ function GameBoard() {
       //växla tur
       ////När man klickar en ruta sätts "X" eller "O" beroende på värdet av isXNext. Efter att en ruta har klickats växlar turen genom att uppdatera isXNext med !isXNext
       setIsNext(!isNext)
+      }
     }
   }
 
@@ -62,6 +67,13 @@ function GameBoard() {
     // Lagra resultatet av checkForWinningCombination i variabeln "winner"
     const winner = checkForWinningCombination(squares)
     console.log("The winner is: " + winner)
+    console.log("isWin: " + isWin)
+
+    // if winner is not "" (there is not a winner) and isWin is false (there is not a winner) set win to true (someone has won) 
+    if (winner !== "" && !isWin) {
+      console.log("We have a winner!")
+      setIsWin(true)
+    }
 
     const checkForTie = (squares: any) => {
       // innehåller arrayn några tomma strängar ""
