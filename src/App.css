@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(80, 109, 136);
+  color: rgb(60, 81, 100);
 }
 
 .container {
@@ -50,7 +50,7 @@
 
 .resetButton {
   color: rgb(255, 255, 255);
-  background-color: rgb(80, 109, 136);
+  background-color: rgb(60, 81, 100);
   margin: 50px;
   font-size: calc(10px + 2vmin);
   padding: 18px;
@@ -59,8 +59,8 @@
   font-weight: 600;
   cursor: pointer;
   line-height: 16px;
-  background-image: linear-gradient(rgba(132, 152, 201, 0.84), rgba(80, 109, 136, 0.84) 50%);
-  box-shadow: rgba(80, 109, 136, 0.24) 0 2px 2px,rgba(132, 152, 201, 0.4) 0 8px 12px;
+  background-image: linear-gradient(rgba(132, 152, 201, 0.84), rgba(60, 81, 100, 0.84) 50%);
+  box-shadow: rgba(60, 81, 100, 0.24) 0 2px 2px,rgba(132, 152, 201, 0.4) 0 8px 12px;
 }
 
 .resetButton:hover {
@@ -68,6 +68,6 @@
 }
 
 .message-box {
-  color: rgb(80, 109, 136);
+  color: rgb(60, 81, 100);
   font-size: calc(8px + 2vmin);
 }
