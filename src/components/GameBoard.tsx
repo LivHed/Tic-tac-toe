@@ -6,11 +6,8 @@ import Message from './Message'
 function GameBoard() {
   const [squares, setSquares] = useState(Array(9).fill(""))
   const [isNext, setIsNext] = useState(true)
-  //const [go, setGo] = useState("X")
-//  const [isTie, setIsTie] = useState(false)
+  const [go, setGo] = useState("X")
   const [isWin, setIsWin] = useState(false)
-
- // const nextTurnMessage = "It's now " + go + "'s turn!"
 
   //kopierar arrayn, 
   const newSquares = squares.slice()
@@ -28,6 +25,7 @@ function GameBoard() {
         //växla tur
         ////När man klickar en ruta sätts "X" eller "O" beroende på värdet av isXNext. Efter att en ruta har klickats växlar turen genom att uppdatera isXNext med !isXNext
         setIsNext(!isNext)
+        setGo(isNext ? "O" : "X") // // Uppdatera vems tur det är
       }
     }
   }
@@ -84,19 +82,21 @@ function GameBoard() {
 
     const resetToEmptyBoard = () => {
       setSquares(Array(9).fill(""))
-      console.log('reset is running')
+      setIsNext(true)
+      setGo("X") // återställ till X tur som alltid kör först
+      setIsWin(false)
     } 
 
     return (
       <>
         <div className="game-board-row">
           <Square value={squares[0]} onClick={() => handleNextTurn(0)}/>
-          <Square value={squares[1]} onClick={() => handleNextTurn(1)} />
+          <Square value={squares[1]} onClick={() => handleNextTurn(1)}/>
           <Square value={squares[2]} onClick={() => handleNextTurn(2)}/>
         </div>
         <div className="game-board-row">
           <Square value={squares[3]} onClick={() => handleNextTurn(3)}/>
-          <Square value={squares[4]} onClick={() => handleNextTurn(4)} />
+          <Square value={squares[4]} onClick={() => handleNextTurn(4)}/>
           <Square value={squares[5]} onClick={() => handleNextTurn(5)}/>
         </div>
         <div className="game-board-row">
@@ -108,7 +108,7 @@ function GameBoard() {
         <ResetButton onClick={() => resetToEmptyBoard()}/>
         </div>
         <div className="message-box">
-          <Message message={winner ? `The winner is: ${winner}` : checkForTie(squares) ? "It's a tie": ""}/>
+          <Message message={winner ? `The winner is: ${winner}` : checkForTie(squares) ? "It's a tie": `It's now ${go}'s turn`}/>
       </div>
         
       </>
