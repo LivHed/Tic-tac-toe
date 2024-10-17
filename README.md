@@ -4,7 +4,7 @@
 
 To improve the accessibility on the page I used the tool [Who can use](https://www.whocanuse.com/) to check the color combination. A tool that can show how color contrast can affect different people with visual impairments.
 After some changes of my original choice of colors it resulted in this:
-![Color combination](./images/tic-tac-toe-color-combination.png)
+![Color combination](images/tic-tac-toe-color-combination.png)
 
 I also used the tool [Lighthouse](https://developer.chrome.com/docs/lighthouse) to get a report of the accessibility on the page, which reminded me to add an aria-label to the square button component.
 
