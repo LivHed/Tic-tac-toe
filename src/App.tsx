@@ -7,7 +7,7 @@ import GameBoard from './components/GameBoard'
       <div className="App">
         <header className="App-header">
           <h1>
-            Tic tac toe game
+            Tic tac toe
           </h1>
         </header>
         <div className="container">
