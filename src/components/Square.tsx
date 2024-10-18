@@ -4,7 +4,7 @@ type SquareProps = {
   };
 
 function Square({ value, onClick }: SquareProps) {
-    return <button aria-label="gameboard-square" className="square" onClick={onClick}>
+    return <button data-testid="square-button" aria-label="gameboard-square" className="square" onClick={onClick}>
         {value}
     </button>
  }

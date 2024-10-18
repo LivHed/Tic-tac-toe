@@ -3,7 +3,7 @@ type MessageProps = {
   };
 
 function Message({message}:  MessageProps) {
-    return <div>{message}</div>
+    return <div data-testid="message">{message}</div>
  }
 
  export default Message
