@@ -6,28 +6,22 @@ import Message from './Message'
 function GameBoard() {
   const [squares, setSquares] = useState(Array(9).fill(""))
   const [isNext, setIsNext] = useState(true)
-  const [go, setGo] = useState("X")
+  const [player, setPlayer] = useState("X")
   const [isWin, setIsWin] = useState(false)
-
-  //kopierar arrayn, 
-  const newSquares = squares.slice()
 
   const handleNextTurn = (index: number) => {
     // if there is not a winner (!isWin), run the rest of the code in the function (and one can continue clicking on the squares)
-    if (!isWin) {
-      if (!squares[index]) {
+      if (!isWin && !squares[index]) {
         //Visa antingen X eller O beroende på vems tur det är
         //Om isXNext är true, visas "X", annars "O"
+        const newSquares = squares.slice()
         newSquares[index] = isNext ? "X" : "O"
         console.log(newSquares)
-        //uppdatera state
         setSquares(newSquares)
-        //växla tur
         ////När man klickar en ruta sätts "X" eller "O" beroende på värdet av isXNext. Efter att en ruta har klickats växlar turen genom att uppdatera isXNext med !isXNext
         setIsNext(!isNext)
-        setGo(isNext ? "O" : "X") // // Uppdatera vems tur det är
+        setPlayer(isNext ? "O" : "X") // Uppdatera vems tur det är
       }
-    }
   }
 
   const winningCombinations = [
@@ -53,6 +47,11 @@ function GameBoard() {
           winningPlayer = "O"
          }
       }
+      //  if winner is not "" (there is not a winner) and isWin is false (there is not a winner) set win to true (someone has won) 
+       if (winningPlayer !== "" && !isWin) {
+        console.log("We have a winner!")
+        setIsWin(true)
+      }
       console.log(winningPlayer)
       // när alla kombinationer har loopats igenom och varken X eller O är the winner så returneras tom sträng
       return winningPlayer
@@ -62,12 +61,6 @@ function GameBoard() {
     const winner = checkForWinningCombination(squares)
     console.log("The winner is: " + winner)
     console.log("isWin: " + isWin)
-
-    // if winner is not "" (there is not a winner) and isWin is false (there is not a winner) set win to true (someone has won) 
-    if (winner !== "" && !isWin) {
-      console.log("We have a winner!")
-      setIsWin(true)
-    }
 
     const checkForTie = (squares: any) => {
       // innehåller arrayn några tomma strängar ""
@@ -83,7 +76,7 @@ function GameBoard() {
     const resetToEmptyBoard = () => {
       setSquares(Array(9).fill(""))
       setIsNext(true)
-      setGo("X") // återställ till X tur som alltid kör först
+      setPlayer("X") // återställ till X tur som alltid kör först
       setIsWin(false)
     } 
 
@@ -108,7 +101,7 @@ function GameBoard() {
         <ResetButton onClick={() => resetToEmptyBoard()}/>
         </div>
         <div className="message-box">
-          <Message message={winner ? `The winner is: ${winner}` : checkForTie(squares) ? "It's a tie": `It's now ${go}'s turn`}/>
+          <Message message={winner ? `The winner is: ${winner}` : checkForTie(squares) ? "It's a tie": `It's now ${player}'s turn`}/>
       </div>
         
       </>
