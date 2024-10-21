@@ -11,7 +11,7 @@ For this project, I decided to use **TypeScript** with React, and **Electron**. 
 To enhance the accessibility of the application I used the tool [Who can use](https://www.whocanuse.com/) to evaluate the contrast between my chosen color combinations. This tool helped me understand how the colors would affect users with different types of visual impairments. After making adjustments to my initial color choices, the final result is shown below:
 ![Color combination](./src/images/tic-tac-toe-color-combination.png)
 
-I also used the tool [Lighthouse](https://developer.chrome.com/docs/lighthouse) to get a report of the accessibility on the page, which reminded me to add an aria-label to the square button component to improve navigation for screen reader users.
+I also used the tool [Lighthouse](https://developer.chrome.com/docs/lighthouse) to get a report of the accessibility on the page, which reminded me to add aria-labels to the components to improve navigation for screen reader users.
 
 ## Scripts
 
