@@ -3,7 +3,7 @@ type ResetProps = {
   };
 
 function ResetButton({ onClick }: ResetProps) {
-    return <button className="resetButton" onClick={onClick}>
+    return <button aria-label="reset-button" className="resetButton" onClick={onClick}>
         Reset
     </button>
  }

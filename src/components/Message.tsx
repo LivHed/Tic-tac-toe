@@ -3,7 +3,7 @@ type MessageProps = {
   };
 
 function Message({message}:  MessageProps) {
-    return <div data-testid="message">{message}</div>
+    return <div aria-label="message-box" data-testid="message">{message}</div>
  }
 
  export default Message
