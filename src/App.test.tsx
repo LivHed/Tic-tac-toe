@@ -1,16 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import {checkForWinningCombination, checkForTie, GameBoard } from './components/GameBoard'
-
-const firstPlayer = "X"
-const secondPlayer = "O"
-//const board = require('./components/GameBoard');
-
-test('first turn is always x', () => {
-  render(<GameBoard/>)
- /* const nextTurn = handleNextTurn() */ // cannot find handleNextTurn()
-})
+import {checkForWinningCombination, checkForTie } from './components/GameBoard'
 
 test('renders tic tac toe title', () => {
   render(<App />)
@@ -92,6 +83,7 @@ test('Horizontal o win returns o', () => {
   expect(winner).toBe("O");
 });
 
+/*-----------No winning combinations-----------*/
 test('No winning combination returns empty string', () => {
   const squares = [
     "X","O","",
@@ -113,7 +105,12 @@ test('All squares are filled and winner is an empty string, its a tie and return
   expect(tie).toBe(true);
 });
 
-//---------------- test scenarios to write -------------------//
+//---------------- test scenarios TODO -------------------//
+
+// Consider refactoring and move the local functions within the GameBoard component to a utils file (or a hooks file)
+// and make them utility functions or custom hooks, to be able to reach them to test them.
+
+//- first turn is always X
 //- when a player clicks X, next turn is O
 //- when a player clicks O, next turn is X
 //- when reset button is clicked, the squares gets empty
